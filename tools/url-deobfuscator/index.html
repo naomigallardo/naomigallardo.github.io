@@ -1,1 +1,123 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>URL Deobfuscator | Naomi Gallardo</title>
+  <meta name="description" content="Refang/defang, decode, and break down suspicious URLs for triage." />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-dot" aria-hidden="true"></div>
+      <div>
+        <div class="topbar-title">URL Deobfuscator</div>
+        <div class="topbar-sub"></div>
+      </div>
+    </div>
+
+    <nav class="topbar-right" aria-label="Navigation">
+      <a class="navlink" href="../">Tools</a>
+      <a class="navlink" href="../../">Portfolio</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h1>Paste a suspicious link</h1>
+      <p class="muted">Handles <span class="mono">hxxp</span>, <span class="mono">[.]</span>, and percent-encoding. It won’t open links automatically. (Always a good idea to defang.)</p>
+
+      <label class="label" for="inputUrl">URL input</label>
+      <textarea id="inputUrl" class="textarea" rows="4" placeholder="Paste the URL here…"></textarea>
+
+      <div class="row">
+        <button class="btn primary" id="btnAnalyze">Analyze</button>
+        <button class="btn" id="btnClear">Clear</button>
+        <button class="btn" id="btnSample">Load sample</button>
+        <div class="spacer"></div>
+
+        <label class="toggle">
+          <input type="checkbox" id="toggleDefang" checked />
+          <span class="toggle-ui"></span>
+          <span class="toggle-text">Defang outputs</span>
+        </label>
+      </div>
+
+      <div class="status" role="status" aria-live="polite">
+        <span id="statusText">Ready. Paste a URL and hit Analyze.</span>
+        <span class="pill" id="flagCount">0 flags</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <section class="card">
+        <div class="cardhead">
+          <h2>Normalized</h2>
+          <div class="actions">
+            <button class="btn small" id="copyNormalized">Copy</button>
+            <a class="btn small" id="vtSearch" href="#" target="_blank" rel="noreferrer">VirusTotal</a>
+          </div>
+        </div>
+        <pre class="output mono" id="outNormalized">—</pre>
+        <p class="tiny muted">“Normalized” = cleaned/refanged so it can be parsed safely (still not auto-opened).</p>
+      </section>
+
+      <section class="card">
+        <div class="cardhead">
+          <h2>Decoded</h2>
+          <div class="actions">
+            <button class="btn small" id="copyDecoded">Copy</button>
+          </div>
+        </div>
+        <pre class="output mono" id="outDecoded">—</pre>
+        <p class="tiny muted">Percent-decoded (e.g. <span class="mono">%2F</span> → <span class="mono">/</span>). Decoding repeats a few times if needed.</p>
+      </section>
+
+      <section class="card span2">
+        <div class="cardhead">
+          <h2>Breakdown</h2>
+          <div class="actions">
+            <button class="btn small" id="copyJson">Copy JSON</button>
+            <button class="btn small" id="exportJson">Export JSON</button>
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <div class="kv">
+            <div class="k">Scheme</div><div class="v mono" id="bScheme">—</div>
+            <div class="k">Host</div><div class="v mono" id="bHost">—</div>
+            <div class="k">Path</div><div class="v mono" id="bPath">—</div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">Query parameters</div>
+            <div class="tablewrap">
+              <table class="table" aria-label="Query parameters">
+                <thead>
+                  <tr><th>Key</th><th>Value</th></tr>
+                </thead>
+                <tbody id="paramsBody">
+                  <tr><td class="muted" colspan="2">—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">Flags</div>
+            <ul class="flags" id="flagsList">
+              <li class="muted">—</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="toasts" id="toasts" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
