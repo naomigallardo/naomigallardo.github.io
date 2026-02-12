@@ -1,15 +1,356 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Naomi Gallardo | Portfolio</title>
-  </head>
-  <body style="font-family: system-ui; padding: 40px;">
-    <h1>It’s live ✅</h1>
-    <p>naomigallardo.github.io is now connected to GitHub Pages.</p>
-   
-    <div><h1>Naomi Gallardo</h1>
-  <h3>Cybersecurity learner + front-end builder.</h3></div>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Naomi Gallardo | Portfolio</title>
+  <meta name="description" content="Cybersecurity learner building practical skills through labs, writeups, and small projects. Front-end UI work + Python in progress." />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#home" aria-label="Go to top">
+        <span class="brand-mark">NG</span>
+        <span class="brand-name">Naomi Gallardo</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#focus">Focus</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <p class="pill">Cybersecurity • Front-end • Python (in progress)</p>
+
+        <h1 class="hero-title">
+          <span class="muted">Hello.</span><br />
+          I’m <span class="accent">Naomi</span>
+        </h1>
+
+        <p class="hero-tagline">
+          Aspiring SOC analyst building skills through labs, writeups, and small tools.
+        </p>
+
+        <p class="hero-sub">
+          I learn by building: organized notes, clean UI demos, and practical security fundamentals.
+        </p>
+
+        <div class="hero-actions">
+          <!-- Contact button scrolls to contact -->
+          <a class="btn primary" href="#contact">Let’s connect</a>
+
+          <!-- Resume: upload resume.pdf into your repo root or /assets, then update href -->
+          <a class="btn ghost" href="https://drive.google.com/file/d/1agraP89hefXoyOxVViVZu54CG5vC0LDp/view?usp=sharing" target="_blank" rel="noreferrer">My resume</a>
+        </div>
+
+        <div class="proof-strip" aria-label="Quick credentials">
+          <span class="chip">Google Cybersecurity</span>
+          <span class="chip">FCC Responsive Web Design</span>
+          <span class="chip">TryHackMe (EH • SOC L1)</span>
+          <span class="chip">Security+ (pending)</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="portrait">
+          <!-- For GitHub Pages: put your image at assets/img/headshot.jpg -->
+          <!-- For CodePen testing: replace src with a CodePen Asset URL or GitHub RAW URL -->
+          <img
+            class="portrait-img"
+            src="https://drive.google.com/file/d/17KDB-brm8KFEKRIEzCxtiBVf9O8AfOVM/view?usp=sharing"
+            alt="Headshot of Naomi Gallardo"
+            loading="lazy"
+          />
+          <div class="portrait-ring" aria-hidden="true"></div>
+          <div class="portrait-glow" aria-hidden="true"></div>
+        </div>
+
+        <div class="hero-sidecard">
+          <h2 class="sidecard-title">Right now</h2>
+          <ul class="sidecard-list">
+            <li>TryHackMe: Ethical Hacker + SOC L1</li>
+            <li>Security+ review + practice</li>
+            <li>JavaScript + Python mini-projects</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-head">
+        <h2>About me</h2>
+        <p>
+          I’m passionate about learning and building skills in public. When I’m not juggling life, I’m coding,
+          digging into cybersecurity concepts, and turning notes into usable projects.
+        </p>
+      </div>
+
+      <div class="about-panel">
+        <p>
+          I’m especially interested how blue-team fundamentals incorporate how to think clearly under pressure, document findings,
+          and automate repetitive tasks over time. I also enjoy crafting clean, readable UI.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOCUS / ICON SECTION -->
+    <section id="focus" class="section">
+      <div class="section-head">
+        <h2>What I study</h2>
+        <p>My intentional and practical hands-on current focus areas.</p>
+      </div>
+
+      <div class="focus-grid">
+        <article class="focus-card">
+          <div class="focus-icon" aria-hidden="true">🛡️</div>
+          <h3>SOC fundamentals</h3>
+          <p>Alert triage mindset, baselining, and clear documentation.</p>
+        </article>
+
+        <article class="focus-card">
+          <div class="focus-icon" aria-hidden="true">🌐</div>
+          <h3>Networking</h3>
+          <p>Packet Tracer labs, protocols, and how traffic behaves.</p>
+        </article>
+
+        <article class="focus-card">
+          <div class="focus-icon" aria-hidden="true">🐧</div>
+          <h3>Linux</h3>
+          <p>CLI, permissions, tooling, and everyday troubleshooting.</p>
+        </article>
+
+        <article class="focus-card">
+          <div class="focus-icon" aria-hidden="true">🧬</div>
+          <h3>Threat research</h3>
+          <p>Malware notes, threat concepts, and organized dossiers.</p>
+        </article>
+
+        <article class="focus-card">
+          <div class="focus-icon" aria-hidden="true">🎨</div>
+          <h3>Front-end</h3>
+          <p>HTML/CSS layouts, responsive design, and JS progression.</p>
+        </article>
+
+        <article class="focus-card">
+          <div class="focus-icon" aria-hidden="true">🐍</div>
+          <h3>Python</h3>
+          <p>Small scripts for automation and data handling basics.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS (CAROUSEL) -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p>Small but intentional demos | UI work + study artifacts</p>
+      </div>
+
+      <div class="carousel" aria-label="Projects carousel">
+        <div class="carousel-top">
+          <button class="icon-btn" type="button" data-carousel-prev aria-label="Previous projects">
+            ‹
+          </button>
+
+          <div class="carousel-dots" data-carousel-dots aria-label="Carousel position"></div>
+
+          <button class="icon-btn" type="button" data-carousel-next aria-label="Next projects">
+            ›
+          </button>
+        </div>
+
+        <div class="carousel-track" data-carousel-track tabindex="0">
+          <!-- Card 1 -->
+          <a class="project-card" href="https://codepen.io/Naomi-Gallardo/pen/ZYOmKRX" target="_blank" rel="noreferrer">
+            <div class="project-media">
+              <!-- Optional: replace gradient with thumbnail later -->
+              <div class="project-thumb" style="background-image:assets/img/projects/malwaredossier.png"></div>
+
+              <div class="overlay">
+                <span class="overlay-text">View demo</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-topline">
+                <h3>Malware Dossier</h3>
+                <span class="tag">HTML/CSS</span>
+              </div>
+              <p>Dossier-style UI concept for organizing malware research notes and analysis.</p>
+              <div class="project-meta">
+                <span class="meta">CodePen</span>
+                <span class="meta">UI</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 2 -->
+          <a class="project-card" href="https://codepen.io/Naomi-Gallardo/pen/qEZqWrE" target="_blank" rel="noreferrer">
+            <div class="project-media">
+              <div class="project-thumb thumb-2" aria-hidden="true"></div>
+              <div class="overlay">
+                <span class="overlay-text">View demo</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-topline">
+                <h3>Chat App Dashboard (WIP)</h3>
+                <span class="tag">UI System</span>
+              </div>
+              <p>Component-forward dashboard layout with clean spacing and theme variables.</p>
+              <div class="project-meta">
+                <span class="meta">CodePen</span>
+                <span class="meta">WIP</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 3 -->
+          <a class="project-card" href="https://codepen.io/Naomi-Gallardo/pen/ZYWEbvE" target="_blank" rel="noreferrer">
+            <div class="project-media">
+              <div class="project-thumb thumb-3" aria-hidden="true"></div>
+              <div class="overlay">
+                <span class="overlay-text">View demo</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-topline">
+                <h3>Simple Portfolio Page</h3>
+                <span class="tag">Layout</span>
+              </div>
+              <p>A clean starter layout I’m evolving into a full GitHub Pages portfolio.</p>
+              <div class="project-meta">
+                <span class="meta">CodePen</span>
+                <span class="meta">Responsive</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Optional Card 4: Your GitHub Cyber Repo -->
+          <a class="project-card" href="https://github.com/naomigallardo/NaomiGallardo-CyberPortfolio" target="_blank" rel="noreferrer">
+            <div class="project-media">
+              <div class="project-thumb thumb-4" aria-hidden="true"></div>
+              <div class="overlay">
+                <span class="overlay-text">Open repo</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-topline">
+                <h3>Cyber Portfolio Repository</h3>
+                <span class="tag">Notes</span>
+              </div>
+              <p>Organized learning library: blue team, Linux, networking, and more.</p>
+              <div class="project-meta">
+                <span class="meta">GitHub</span>
+                <span class="meta">Cyber</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARNING / TRYHACKME -->
+    <section id="learning" class="section">
+      <div class="section-head">
+        <h2>Learning</h2>
+        <p>Progress snapshots + proof links.</p>
+      </div>
+
+      <div class="learning-grid">
+        <div class="panel">
+          <h3>Completed</h3>
+          <ul>
+            <li>Google Cybersecurity Certificate</li>
+            <li>FCC Responsive Web Design Certificate</li>
+            <li>Packet Tracer labs</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>In progress</h3>
+          <ul>
+            <li>Security+ (exam pending)</li>
+            <li>TryHackMe Ethical Hacker</li>
+            <li>TryHackMe SOC Level 1</li>
+            <li>JavaScript + Python projects</li>
+          </ul>
+        </div>
+
+        <div class="panel tryhackme">
+          <h3>TryHackMe</h3>
+          <p class="muted-sm">Badge embed (or link if embed misbehaves).</p>
+
+          <div class="iframe-wrap">
+            <iframe
+              title="TryHackMe profile badge"
+              src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3349494"
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <a class="text-link" href="https://tryhackme.com/p/ngallardo" target="_blank" rel="noreferrer">
+            View profile →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Best way to reach me + quick links.</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-left">
+          <h3>Let’s connect</h3>
+          <p class="muted-sm">
+            I’m open to opportunities and always happy to talk about cybersecurity learning paths, labs, and projects.
+          </p>
+        </div>
+
+        <div class="contact-right">
+          <!-- Replace with your email -->
+          <a class="btn primary" href="mailto:naomigallardo12@gmail.com">Email me</a>
+
+          <!-- Replace with your LinkedIn URL -->
+          <a class="btn ghost" href="https://www.linkedin.com/in/naomigallardo/" target="_blank" rel="noreferrer">LinkedIn</a>
+
+          <a class="btn ghost" href="https://github.com/naomigallardo" target="_blank" rel="noreferrer">GitHub</a>
+
+          <a class="btn ghost" href="https://drive.google.com/file/d/1agraP89hefXoyOxVViVZu54CG5vC0LDp/view?usp=sharing" target="_blank" rel="noreferrer">Resume (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-row">
+        <p>© <span id="year"></span> Naomi Gallardo</p>
+        <div class="footer-links">
+          <a href="https://tryhackme.com/p/ngallardo" target="_blank" rel="noreferrer">TryHackMe</a>
+          <a href="https://codepen.io/Naomi-Gallardo" target="_blank" rel="noreferrer">CodePen</a>
+          <a href="https://github.com/naomigallardo" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
 </html>
