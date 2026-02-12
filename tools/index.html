@@ -1,1 +1,141 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tools | Naomi Gallardo</title>
+  <meta name="description" content="Small cybersecurity tools and UI projects built by Naomi Gallardo." />
+
+  <!-- If you want it to share the SAME CSS as your main site, link to ../style.css -->
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body class="bg">
+  <!-- Header / nav (simple + consistent) -->
+  <header class="header-row" style="padding: 14px 0;">
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap: 12px;">
+        <div style="display:flex; align-items:center; gap: 10px;">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <div>
+            <div style="color:white; font-weight:800; letter-spacing:0.04em;">Tools</div>
+            <div style="color:rgba(255,255,255,0.7); font-weight:600; font-size:14px;">
+              Little apps I built for cyber workflows + studying
+            </div>
+          </div>
+        </div>
+
+        <nav class="topnav" aria-label="Primary">
+          <a href="../index.html">Home</a>
+          <a class="active" href="./">Tools</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 28px 0 60px;">
+    <section style="max-width: 980px;">
+      <h1 class="h1" style="margin: 0 0 10px;">Tools & mini apps</h1>
+      <p style="margin: 0 0 22px; color: rgba(255,255,255,0.75); font-weight: 500;">
+        Built to make triage faster, studying easier, and the UI more fun than it has any right to be.
+      </p>
+
+      <!-- Grid of tool cards -->
+      <div style="
+        display:grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 14px;
+      ">
+
+        <!-- IOC Extractor card -->
+        <article style="
+          grid-column: span 12;
+          border: 1px solid rgba(255,255,255,0.14);
+          border-radius: 18px;
+          background: rgba(255,255,255,0.04);
+          overflow: hidden;
+        ">
+          <div style="
+            display:flex;
+            flex-wrap:wrap;
+            gap: 16px;
+            align-items: stretch;
+          ">
+            <!-- Left: thumbnail / banner -->
+            <div style="
+              flex: 1 1 260px;
+              min-height: 160px;
+              background:
+                radial-gradient(600px 220px at 30% 30%, rgba(217,123,11,0.30), transparent 60%),
+                radial-gradient(600px 220px at 70% 70%, rgba(204,153,255,0.22), transparent 60%),
+                rgba(0,0,0,0.25);
+            "></div>
+
+            <!-- Right: content -->
+            <div style="flex: 2 1 420px; padding: 18px;">
+              <div style="display:flex; justify-content:space-between; gap: 12px; flex-wrap: wrap;">
+                <h2 style="margin:0; color:white; font-size: 20px; letter-spacing: 0.02em;">
+                  IOC Extractor 95 — Bestie Edition
+                </h2>
+                <div style="display:flex; gap: 8px; flex-wrap: wrap;">
+                  <span style="
+                    font-size: 12px; font-weight: 700;
+                    padding: 6px 10px; border-radius: 999px;
+                    border: 1px solid rgba(255,255,255,0.16);
+                    color: rgba(255,255,255,0.85);
+                    background: rgba(0,0,0,0.22);
+                  ">SOC utility</span>
+                  <span style="
+                    font-size: 12px; font-weight: 700;
+                    padding: 6px 10px; border-radius: 999px;
+                    border: 1px solid rgba(255,255,255,0.16);
+                    color: rgba(255,255,255,0.85);
+                    background: rgba(0,0,0,0.22);
+                  ">Defang / Export</span>
+                </div>
+              </div>
+
+              <p style="margin: 10px 0 14px; color: rgba(255,255,255,0.75); line-height: 1.55;">
+                Paste text from emails, logs, or threat intel. Instantly extracts URLs/domains/IPs/hashes, dedupes,
+                defangs for safety, and gives you one-click copy + exports.
+              </p>
+
+              <div style="display:flex; gap: 10px; flex-wrap: wrap;">
+                <a class="solid-button" href="./ioc-extractor/" target="_blank" rel="noreferrer"
+                   style="text-decoration:none; display:inline-block;">
+                  Open tool
+                </a>
+
+                <a class="hollow-button" href="../index.html#contact"
+                   style="text-decoration:none; display:inline-block;">
+                  Contact
+                </a>
+              </div>
+
+              <div style="margin-top: 12px; color: rgba(255,255,255,0.55); font-size: 13px;">
+                Built with HTML/CSS/JS • No backend • Runs fully in-browser
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Placeholder card for your next tool -->
+        <article style="
+          grid-column: span 12;
+          border: 1px dashed rgba(255,255,255,0.18);
+          border-radius: 18px;
+          background: rgba(255,255,255,0.03);
+          padding: 18px;
+        ">
+          <h2 style="margin:0 0 8px; color:white; font-size: 18px;">Next tool</h2>
+          <p style="margin:0; color: rgba(255,255,255,0.7); line-height: 1.55;">
+            Coming soon: URL deobfuscator / log highlighter / Sec+ study arcade… 👀
+          </p>
+        </article>
+
+      </div>
+    </section>
+  </main>
+</body>
+</html>
