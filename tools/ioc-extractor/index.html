@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IOC Extractor 95 — Bestie Edition</title>
+  <meta name="description" content="Paste text, extract IOCs (URLs, domains, IPs, hashes), defang/refang, copy, export. Serious tool, unserious UI." />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+  
+ <body>
+  <div class="desktop">
+    <!-- Top bar (fake OS vibe) -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="pixel-heart" aria-hidden="true">♥</span>
+        <span class="topbar-title">IOC Extractor 95 — Bestie Edition</span>
+      </div>
+      <div class="topbar-right">
+        <a class="topbar-link" href="../../index.html" title="Back to portfolio">← Portfolio</a>
+        <a class="topbar-link" href="../index.html" title="Tools hub">Tools</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <!-- Window: Input -->
+      <section class="win" aria-label="Input window">
+        <div class="titlebar">
+          <div class="titlebar-left">
+            <span class="win-icon" aria-hidden="true">🗂️</span>
+            <span class="titlebar-text">Paste suspicious text here (or totally innocent, we won’t judge)</span>
+          </div>
+          <div class="titlebar-buttons" aria-hidden="true">
+            <span class="tb-btn">_</span><span class="tb-btn">□</span><span class="tb-btn">×</span>
+          </div>
+        </div>
+
+        <div class="win-body">
+          <label class="label" for="inputText">Input</label>
+          <textarea id="inputText" class="textbox" rows="10" placeholder="Paste email bodies, logs, threat intel writeups, notes… etc."></textarea>
+
+          <div class="controls">
+            <button class="btn primary" id="btnExtract">Extract IOCs</button>
+            <button class="btn" id="btnClear">Clear</button>
+            <button class="btn" id="btnSample">Load sample</button>
+
+            <div class="spacer"></div>
+
+            <label class="toggle">
+              <input type="checkbox" id="toggleDefang" checked />
+              <span class="toggle-ui"></span>
+              <span class="toggle-text">Defang output (recommended)</span>
+            </label>
+          </div>
+
+          <div class="statusbar" role="status" aria-live="polite">
+            <span id="statusText">Ready. Paste text and smash “Extract.”</span>
+            <span class="status-right">
+              <span class="badge" id="countAll">0 found</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Window: Results -->
+      <section class="win" aria-label="Results window">
+        <div class="titlebar">
+          <div class="titlebar-left">
+            <span class="win-icon" aria-hidden="true">🧷</span>
+            <span class="titlebar-text">Results (organized for your precious braincells)</span>
+          </div>
+          <div class="titlebar-buttons" aria-hidden="true">
+            <span class="tb-btn">_</span><span class="tb-btn">□</span><span class="tb-btn">×</span>
+          </div>
+        </div>
+
+        <div class="win-body">
+          <div class="tabs" role="tablist" aria-label="IOC categories">
+            <button class="tab active" role="tab" aria-selected="true" data-tab="urls">
+              URLs <span class="tab-count" id="cUrls">0</span>
+            </button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="domains">
+              Domains <span class="tab-count" id="cDomains">0</span>
+            </button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="ips">
+              IPs <span class="tab-count" id="cIps">0</span>
+            </button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="hashes">
+              Hashes <span class="tab-count" id="cHashes">0</span>
+            </button>
+          </div>
+
+          <div class="results-top">
+            <div class="hint" id="hintLine">Tip: Click any item to get safe lookup buttons ✨</div>
+
+            <div class="results-actions">
+              <button class="btn small" id="btnCopyTab">Copy tab</button>
+              <button class="btn small" id="btnCopyAll">Copy all</button>
+
+              <div class="menu">
+                <button class="btn small" id="btnExport">Export ▾</button>
+                <div class="menu-pop" id="exportMenu" aria-hidden="true">
+                  <button class="menu-item" data-export="json">Export JSON</button>
+                  <button class="menu-item" data-export="csv">Export CSV</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <!-- Lists -->
+            <ul class="ioc-list active" id="list-urls" data-panel="urls"></ul>
+            <ul class="ioc-list" id="list-domains" data-panel="domains"></ul>
+            <ul class="ioc-list" id="list-ips" data-panel="ips"></ul>
+            <ul class="ioc-list" id="list-hashes" data-panel="hashes"></ul>
+
+            <div class="empty" id="emptyState">
+              <div class="empty-face" aria-hidden="true">༼ ༎ຶ ᆺ ༎ຶ༽</div>
+              <div class="empty-title">No IOCs found (bestie… surprisingly peaceful)</div>
+              <div class="empty-sub">Try “Load sample” if you want to see it work.</div>
+            </div>
+          </div>
+
+          <div class="footnote">
+            <strong>Note:</strong> This tool extracts indicators from what <em>you paste</em>. It doesn’t scan your network or confirm compromise.
+            (We’re cute, not clairvoyant.)
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal for “safe actions” -->
+    <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-titlebar">
+          <span class="win-icon" aria-hidden="true">🔎</span>
+          <span id="modalTitle">Indicator actions</span>
+          <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+        </div>
+
+        <div class="modal-body">
+          <p class="modal-line">
+            Selected:
+            <span class="mono" id="modalValue"></span>
+          </p>
+
+          <div class="modal-actions">
+            <button class="btn small" id="btnCopyOne">Copy</button>
+            <a class="btn small" id="btnVT" href="#" target="_blank" rel="noreferrer">Search VirusTotal</a>
+            <a class="btn small" id="btnAIPDB" href="#" target="_blank" rel="noreferrer">Search AbuseIPDB</a>
+          </div>
+
+          <p class="modal-help">
+            “Engaged?” isn’t something we can know from a pasted IOC alone.
+            But we can help you quickly look it up safely 💖
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toasts -->
+    <div class="toasts" id="toasts" aria-live="polite" aria-atomic="true"></div>
+  </div>
+</body>
+</html> 
